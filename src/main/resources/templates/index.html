@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Summit 2026</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="main">
+
+    <!-- Lado esquerdo -->
+    <div class="left">
+
+        <h1>palestra tech 2026</h1>
+        <h2>O futuro da tecnologia começa aqui.</h2>
+
+        <p class="description">
+            Uma palestra exclusiva sobre Inteligência Artificial,
+            Cloud Computing e as profissões do futuro.
+        </p>
+
+        <div class="info">
+            📅 15 de Março <br>
+            🕒 19h ao vivo <br>
+            🌍 Evento Online
+        </div>
+
+    </div>
+
+    <!-- Lado direito -->
+    <div class="right">
+
+        <!-- Mensagem de sucesso -->
+        <div th:if="${sucesso}" class="success-message">
+            ✅ Inscrição realizada com sucesso!
+        </div>
+
+        <!-- Formulário -->
+        <form th:action="@{/salvar}" th:object="${inscricao}" method="post">
+
+            <h3>Reserve sua vaga</h3>
+
+            <div>
+                <input type="text"
+                       th:field="*{nome}"
+                       placeholder="Seu nome"
+                       required>
+            </div>
+
+            <div>
+                <input type="email"
+                       th:field="*{email}"
+                       placeholder="Seu melhor email"
+                       required>
+            </div>
+
+            <div>
+                <input type="tel"
+                       th:field="*{telefone}"
+                       placeholder="Seu telefone"
+                       required>
+            </div>
+
+            <button type="submit">
+                QUERO PARTICIPAR 🚀
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
